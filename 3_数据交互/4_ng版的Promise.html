@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="main">
+		{{arr}}{{json}}
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				$http.get()返回原生的Promise对象
+				
+				$q		ng版的Promise
+				  	$q.all([])
+				  	$q.race([])
+			*/
+			
+			
+			//ng自家的$http
+			/*let mod = angular.module('test',[])
+			mod.controller('main',function($scope,$http){
+				$http.get('data/arr.txt').then(res=>{
+					let data1 = res.data;
+					$http.get('data/json.txt').then(res=>{
+						let data2 = res.data;
+						console.log(data1,data2)
+						$scope.arr = data1;
+						$scope.json = data2;
+					},err=>{
+						alert('读取失败')
+					})
+				},err=>{
+					alert('读取失败')
+				})
+			})*/
+			
+			//ng版的Promise
+			let mod = angular.module('test',[])
+			mod.controller('main',function($scope,$http,$q){
+//				let p = $http.get('data/arr.txt');
+//				console.log(p)
+				/*Promise.all([
+					$http.get('data/arr.txt'),
+					$http.get('data/json.txt')
+				]).then(res=>{
+					//console.log(res)
+					let [data1,data2] = res;
+					console.log(data1,data2)
+					$scope.arr = data1.data;
+					$scope.json = data2.data;
+					$scope.$apply()
+				},err=>{
+					alert('读取失败')
+				})*/
+				$q.all([
+					$http.get('data/arr.txt'),
+					$http.get('data/json.txt')
+				]).then(res=>{
+					//console.log(res)
+					let [data1,data2] = res;
+					console.log(data1,data2)
+					$scope.arr = data1.data;
+					$scope.json = data2.data;
+				},err=>{
+					alert('读取失败')
+				})
+			})
+		</script>
+	</body>
+</html>

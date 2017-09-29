@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="main">
+		<ul>
+			<li ng-repeat="item in arr">{{item}}</li>
+		</ul>
+		<script src="angular.js"></script>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			/*
+				数据交互
+
+					ajax
+					jsonp
+
+				“异步”问题：
+					1.叫回来     $scope.$apply()
+					
+					2.自己家     $http.get
+						$http.get
+						$http.post
+						$http.jsonp
+			*/
+			let mod = angular.module('test',[])
+			mod.controller('main',function($scope,$http){
+				//$scope.arr = [12,5,8]
+				
+				
+				//1.用ajax
+				/*$.ajax({
+					url:'data/arr.txt',
+					dataType:'json',
+					success(res){
+						console.log(res)
+						$scope.arr = res;
+						//获取到数据之后执行检查
+						$scope.$apply()
+					},
+					error(){
+						alert('错了')
+					}
+				})*/
+				
+				/*
+					异步的操作都会有问题
+						controller执行完之后会有一个检查（隐藏的），检查数据的变化
+						异步使得先执行检查，再执行ajax，获取数据
+					解决办法
+						获取到数据之后执行检查
+				*/
+				//隐藏的检查	$scope.$apply()
+				
+				
+				//2.用ng自家的请求数据方法
+				$http.get('data/arr.txt').then(res=>{
+					console.log(res)
+					$scope.arr = res.data;
+				},err=>{
+					alert('错了')
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="main">
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				Angular特性：
+				1.双向绑定    ng-model
+				  	数据	<->	UI
+				  	$scope	<->	HTML
+				
+				
+				2.依赖注入(依赖反转)
+				 	要什么参数，就能得到什么参数
+				 	方便
+				
+				名词：
+					“属性”    指令      ng-
+					“参数”    依赖      $
+			*/
+			
+			
+			//函数
+			//给什么吃什么，没有是undefined
+			/*function show(a,b){
+		      	alert(a);
+		      	alert(b);
+		   	}
+		    show(12);*/
+		    
+		    
+		    let mod = angular.module('test',[])
+		    mod.controller('main',function($scope,$http,$timeout){
+		    	console.log(arguments.length)
+		    })
+		</script>
+	</body>
+</html>

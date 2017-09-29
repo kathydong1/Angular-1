@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="main">
+		<input type="text" value="" ng-model="a" />
+		<input type="text" value="" ng-model="b" />
+		<!--
+			{{a+b}}
+				生成的两个数据都是字符串，所以a+b是直接拼接
+				
+			{{parseInt(a)+parseInt(b)}}
+				ng和js不互通，没办法用parseInt方法
+				
+			<span>{{a+b}}</span>
+			
+			<span>{{parseInt(a)+parseInt(b)}}</span>
+		-->
+		<span>{{result(a)+result(b)}}</span>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				controller——逻辑核心、大段代码
+
+				$scope——angular的作用域(所有的Angular里面的数据，都在$scope上)
+			*/
+			let mod = angular.module('test',[])
+			mod.controller('main',function($scope){
+				$scope.a = 0;
+				$scope.b = 0;
+				$scope.result = function(str){
+					//parseInt	js中的parseInt方法
+					return parseInt(str)
+				}
+			})
+		</script>
+	</body>
+</html>

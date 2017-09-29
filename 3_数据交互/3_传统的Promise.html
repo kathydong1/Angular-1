@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			//传统的ajax
+			$.ajax({
+		      	url: 'data/arr.txt',
+		      	dataType: 'json',
+		      	success(data1){
+		        	$.ajax({
+		          		url: 'data/json.txt',
+		          		dataType: 'json',
+		          		success(data2){
+		                	console.log(data1, data2);
+		              	},
+		              	error(){
+		                	alert('读取失败');
+		              	}
+		            });
+		        },
+			    error(){
+			    	alert('读取失败');
+		    	}
+		    });
+		    //传统的Promise
+		    Promise.all([
+		    	$.ajax({url:'data/arr.txt',dataType:'json'}),
+		    	$.ajax({url:'data/json.txt',dataType:'json'})
+		    ]).then(res=>{
+		    	//console.log(res)
+		    	let [data1,data2] = res;
+		    	console.log(data1,data2)
+		    },err=>{
+		    	alert('读取失败')
+		    })
+		</script>
+	</body>
+</html>

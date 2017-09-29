@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="main">
+		{{a}}
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				数据交互
+				  	$http.get()
+				
+				1.异步
+				  	$interval、$timeout
+	
+				2.Promise
+				  	$q
+				
+				3.另两种方式
+				  	$http.get
+				  	$http.post
+				  	$http.jsonp
+
+				$scope    作用域：数据
+				  	$scope.$apply()
+				
+				$http     数据交互
+				$interval
+				$timeout
+				
+				$q		ng版的Promise
+				  	$q.all([])
+				  	$q.race([])
+			*/
+			let mod = angular.module('test',[])
+			mod.controller('main',function($scope,$timeout,$interval){
+				
+//				setTimeout(()=>{
+//					$scope.a = 10;
+//					$scope.$apply()
+//				},1000)
+				
+//				$scope.a = 10
+//				setInterval(()=>{
+//					$scope.a++;
+//					$scope.$apply()
+//				},1000)
+
+//				$timeout(()=>{
+//					$scope.a = 10;
+//				},1000)
+				
+				$scope.a = 10;
+				$interval(()=>{
+					$scope.a++;
+				},1000)
+			})
+		</script>
+	</body>
+</html>
