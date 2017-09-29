@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="ctrl">
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				Controller
+
+					M   ng-model      model数据
+					V   ng-bind  {{}} 表现
+					C
+					  *核心
+
+				模块化：
+					重用
+
+				模块：
+					1.写模块
+					  angular.module(名字, [依赖])
+					
+					2.用模块
+					  ng-app="名字"
+
+
+				Controller
+					核心
+				  	属于module(模块)
+				  	一个模块可以包含多个Controller
+
+				1.写
+				  	angular.module(名字, [依赖])
+				  	mod.controller(名字, function (){
+				    	//代码...
+				  	})
+				
+				2.用
+				  	ng-app="模块名"
+				  	ng-controller="Controller名字"
+			*/
+			//1.写模块
+			let mod = angular.module('test',[])
+			//2.写Controller
+			mod.controller('ctrl',function(){
+				//代码...
+			})
+		</script>
+	</body>
+</html>
