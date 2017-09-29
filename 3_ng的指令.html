@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.bg{
+				width: 200px;
+				height: 200px;
+				background: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<!--ng-app 划定一个ng使用的范围-->
+		<div ng-app="">
+			<input value="" ng-model="a"/>
+			<div ng-bind="a" class="bg"></div>
+		</div>
+		
+		<div>
+			<input value="" ng-model="a"/>
+			<div ng-bind="a" class="bg"></div>
+		</div>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				1.ng-model		双向绑定
+				
+	  				数据变了<->视图变化
+	     			V	<->	  M
+	     		2.ng-bind     单向绑定(输出)
+	     		
+  					数据->视图
+
+				3.ng-app      范围
+			*/
+		</script>
+	</body>
+</html>
