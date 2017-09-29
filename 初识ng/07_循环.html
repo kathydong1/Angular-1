@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-init="arr=[12,5,8,12]">
+		<!--<ul>
+			<li ng-repeat="item in arr">{{item}}</li>
+		</ul>-->
+		
+		<ul>
+			<li ng-repeat="item in arr track by $index">{{$index}} : {{item}}</li>
+		</ul>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				Angular出于性能考虑
+	    		数据	  <->   元素
+	    		数据和元素一一对应
+	    		要求每个元素都有一个唯一的key(标识)
+	    		
+	    		
+	    		数组里面只有单独的每项，没有key的存在，
+	    		所以把数组每项的值作为key输出，碰到重复的就会报错
+	    		
+	    		track by
+	    		$index (框架内置)
+	    		track by $index  ->  以index作为key
+	    		
+	    		缺点：
+	    			当删除数组第一项的时候，后续的每项index都会随之发生变化
+	    		解决：
+	    			不用解决(使用更多的数据格式是数组里套json或者json里套数组的形式)
+	    		
+	    	*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-init="a=0;b=0">
+		<input type="text" value="0" ng-model="a" />
+		<input type="text" value="0" ng-model="b" />
+		<span>{{a*b}}</span>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				ng-model指令接管了这个标签的value
+				而标签的属性是无法更改视图层的
+			*/
+		</script>
+	</body>
+</html>

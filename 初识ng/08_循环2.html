@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-init="arr=[{user: 'zyh', age: 18},
+											{user: '张三', age: 23},
+											{user: '李四', age: 25},
+											{user: 'zyh', age: 18}
+											]">
+		<ul>
+			<li ng-repeat="item in arr">你的名字：{{item.user}}，年龄：{{item.age}}</li>
+		</ul>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*	
+	    		为什么数字不能重复，json就可以重复
+	    		12==12 //true
+	    		
+	    		[1,2]==[1,2] //false
+	    		new Array[1,2]==new Array[1,2]
+	    		
+	    		{user: 'zyh', age: 18}=={user: 'zyh', age: 18} //false
+	    		new Object()==new Object()
+	    	*/
+		</script>
+	</body>
+</html>

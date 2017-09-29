@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title>{{a}}</title>
+	</head>
+	<body>
+		<!--<input type="text" ng-model="age" />
+		<p ng-bind="age">我的年龄：{{name}}</p>-->
+		<input type="text" ng-model="age" />
+		<p>我的年龄：<span ng-bind="age">{{name}}</span></p>
+		
+		
+		<input type="text" ng-model="name" />
+		<p>我的名字叫：{{name}}</p>
+		
+		
+		<input type="text" ng-model="a">
+    	<div style="width:200px;height:200px;background:{{a}};"></div>
+    	
+    	
+    	<input type="text" ng-model="img">
+    	<img src="{{img}}" alt="加载失败...">
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*	
+				指令
+					1.系统（框架内置指令）
+					2.自定义
+				
+				Angular——增强HTML的功能
+				
+				
+				ng-bind不太好用
+				缺点：
+					输出覆盖原有的
+					加一个子级标签解决（麻烦）
+				
+				{{表达式}}
+				优点：
+					1.方便
+					2.任何地方
+			*/
+		</script>
+	</body>
+</html>
