@@ -48,7 +48,7 @@
 	
 	    mod.controller('main', function ($scope, $http){
 	      $scope.calc=function (){
-	        $http.post('1.php', {a: $scope.a, b: $scope.b}).then(res=>{
+	        $http.post('post.php', {a: $scope.a, b: $scope.b}).then(res=>{
 	          alert(res.data);
 	        }, ()=>{
 	          alert('错了');

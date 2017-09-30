@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js" charset="utf-8"></script>
+    <script src="common.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('test', ['common']);
+
+    mod.controller('main', function ($http){
+      $http.post('post.php', {a: 22, b: 88}).then(res=>{
+        alert(res.data);
+      }, ()=>{
+        alert('失败');
+      });
+    });
+    </script>
+  </head>
+  <body ng-controller="main">
+
+  </body>
+</html>

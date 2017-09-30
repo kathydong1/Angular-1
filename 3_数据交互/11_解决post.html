@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="utf-8">
+	    <title></title>
+	</head>
+	<body ng-controller="main">
+		<script src="angular.js" charset="utf-8"></script>
+		<script type="text/javascript">
+		let mod=angular.module('test', []);
+		
+		mod.config(function ($httpProvider){
+		  	$httpProvider.defaults.transformRequest=function (obj){
+		    	let arr=[];
+				//encodeURIComponent() 函数 
+				//作用：可把字符串作为URI 组件进行编码
+				for(let name in obj){
+				  	arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
+				}
+		
+				return arr.join('&');
+		  	};
+		  	$httpProvider.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
+		});
+		
+		mod.controller('main', function ($http){
+		  	$http({
+		    	method: 'post',
+				url: 'post.php',
+		    	data: {a: 12, b: 55}
+		  	}).then(res=>{
+		    	alert(res.data);
+		  	}, ()=>{
+		    	alert('失败');
+		  	});
+		});
+		</script>
+	</body>
+</html>

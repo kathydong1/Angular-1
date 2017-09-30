@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-controller="test_a">
+    {{a}}
+    <script src="angular.js" charset="utf-8"></script>
+    <script type="text/javascript">
+	    let mod_a=angular.module('a', []);
+	    mod_a.controller('test_a', function ($scope){
+	      $scope.a=12;
+	    });
+	
+	    let mod_b=angular.module('b', []);
+	    mod_b.controller('test_b', function ($scope){
+	      $scope.b=5;
+	    });
+	
+			//模块依赖：父模块的一切东西，都会复制给子模块
+			//所谓模块化，等于说是把a，b这两个模块的所有的东西，
+			//包括controller、config...都复制到了test的模块身上
+	    let mod=angular.module('test', ['a', 'b']);
+    </script>
+  </body>
+</html>
