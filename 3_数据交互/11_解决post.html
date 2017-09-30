@@ -12,8 +12,8 @@
 		mod.config(function ($httpProvider){
 		  	$httpProvider.defaults.transformRequest=function (obj){
 		    	let arr=[];
-				//encodeURIComponent() 函数 
-				//作用：可把字符串作为URI 组件进行编码
+				//encodeURIComponent()函数 
+				//作用：可把字符串作为URI组件进行编码
 				for(let name in obj){
 				  	arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
 				}
