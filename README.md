@@ -19,7 +19,7 @@
 	});
 ```
 
-> encodeURIComponent()函数
+> encodeURIComponent( )函数
 
 > 作用：可把字符串作为URI组件进行编码
 
