@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-controller="main">
+    <input type="text" ng-model="a">
+    <input type="text" ng-model="b">
+    <input type="button" value="计算" ng-click="calc()">
+    <script src="angular.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    	/*
+	    	配置AngularJS的POST方式
+				1.简单
+				2.高大上
+				
+				a=xxx&b=xxx&c=xxx&d=xxx
+				
+				
+				data=>{a: 12, b: 5}   =>transformRequest=>    "a=12&b=5"
+				
+				1.为啥POST出问题
+  				AngularJS想多了    application/x-www-form-urlencoded => application/json
+
+				2.怎么解决
+			  	换个服务器程序      ×
+			  	改AngularJS库      ×
+			  	配置?
+				
+				  a.改个头
+				    $http({
+				      url,
+				      data,
+				      method,
+				      headers: {'content-type': 'application/x-www-form-urlencoded'}
+				    });
+				  b.改内容
+				    $http({
+				      transformRequest(obj){
+				        return "要传输的字符串"
+				      }
+				    });
+				
+				    {a: 12, b: 5}   =>    "a=12&b=5"
+    	*/
+	    let mod=angular.module('test', []);
+	
+	    mod.controller('main', function ($scope, $http){
+	      $scope.calc=function (){
+	        $http({
+	          method: 'POST',
+	          url: '1.php',
+	          data: {
+	            a: $scope.a,
+	            b: $scope.b
+	          },
+	          headers: {'content-type': 'application/x-www-form-urlencoded'},
+	          //ng默认是转为json，但部分服务器不支持
+	          //ng内置的方法，把data转化为传输给服务器的数据
+	          transformRequest: function (obj){
+	            //obj=>{a: "12", b: "5"}
+	            //return "a=12&b=5"
+	
+	            let arr=[];
+	            for(let name in obj){
+	              arr.push(`${name}=${obj[name]}`);
+	            }
+							console.log(arr)
+	            return arr.join('&');
+	          }
+	        }).then(res=>{
+	          alert(res.data);
+	        }, ()=>{
+	          alert('错了');
+	        });
+	      };
+	    });
+    </script>
+  </body>
+</html>

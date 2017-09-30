@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt1">
+		<input type="text" id="txt2">
+		<button id="btn1">计算</button>
+		<script src="jquery.js"></script>
+		<script type="text/javascript">
+			/*
+				Angular的post
+
+				jQuery、原生Ajax：
+				  x-www-form-urlencoded     经典——所有服务器都认
+				
+				AngularJS：
+				  json                      新潮——部分服务器默认不支持
+				
+				1.从后台入手     ×
+				2.前台解决
+				  	改AngularJS库——不靠谱
+				  	配置AngularJS库 
+			*/
+			$('#btn1').click(function (){
+			$.ajax({
+				url: '1.php',
+				method: 'post',
+				data: {
+					a: $('#txt1').val(),
+					b: $('#txt2').val()
+				},
+				success(res){
+					alert(res);
+				},
+				error(){
+					alert('错了');
+				}
+			})
+		})
+		</script>
+	</body>
+</html>

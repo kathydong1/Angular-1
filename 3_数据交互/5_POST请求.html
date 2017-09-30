@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="test">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="main">
+		<input type="text" ng-model="a" />
+		<input type="text" ng-model="b" />
+		<button ng-click="calc()">计算</button>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				Angular的post
+
+				jQuery、原生Ajax：
+				  x-www-form-urlencoded     经典——所有服务器都认
+				
+				AngularJS：
+				  json                      新潮——部分服务器默认不支持
+				
+				1.从后台入手     ×
+				2.前台解决
+				  	改AngularJS库——不靠谱
+				  	配置AngularJS库 
+			*/
+			let mod = angular.module('test',[])
+			mod.controller('main',function($scope,$http){
+				$scope.calc = function(){
+					$http.post('1.php',{
+						a:$scope.a,
+						b:$scope.b
+					}).then(res=>{
+						alert(res.data)
+					},err=>{
+						alert('错了')
+					})
+				}
+			})
+		</script>
+	</body>
+</html>

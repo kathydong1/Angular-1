@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-controller="main">
+    <input type="text" ng-model="a">
+    <input type="text" ng-model="b">
+    <input type="button" value="计算" ng-click="calc()">
+    <script src="angular.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    	/*
+    		$httpProvider  $http工厂
+    		
+				$http就是$httpProvider生产出来的
+				
+				mod.config()修改配置
+				
+				//defaults类似prototype
+	      $httpProvider.defaults
+				
+				Angular的POST
+
+				传输数据
+				  x-www-form-urlencoded =>  json
+				
+				 配置angular：
+				  mod.config(function ($httpProvider){
+				    $httpProvider.defaults.transformRequest=function (){};
+				    $httpProvider.defaults.post['Content-Type']='application/x-www-form-urlencoded';
+				  });
+    	*/
+	    let mod=angular.module('test', []);
+	
+	    mod.config(function ($httpProvider){
+	      $httpProvider.defaults.transformRequest=function (obj){
+	        let arr=[];
+	        for(let name in obj){
+	          arr.push(`${name}=${obj[name]}`);
+	        }
+	
+	        return arr.join('&');
+	      };
+				//当请求数据是post方式的时候
+	      $httpProvider.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
+	    });
+	
+	    mod.controller('main', function ($scope, $http){
+	      $scope.calc=function (){
+	        $http.post('1.php', {a: $scope.a, b: $scope.b}).then(res=>{
+	          alert(res.data);
+	        }, ()=>{
+	          alert('错了');
+	        });
+	      };
+	    });
+    </script>
+  </body>
+</html>
