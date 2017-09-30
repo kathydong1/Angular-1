@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular-1.5.8.js" charset="utf-8"></script>
+    <script>
+    	/*
+    		JSONP：跨域
+
+				https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=show
+				
+    		v1.6.4      改了一堆东西
+    		
+    		v1.5.*
+				  $http.jsonp('xxx?cb=JSON_CALLBACK').then();
+				
+				v1.6.4之后
+				  let res=$sce.trustAsResourceUrl('xxx');
+				  $http.jsonp(, {jsonpCallbackParam: 'cb'}).then();
+				
+				三种：
+					$http.get()
+					$http.post()      config
+					$http.jsonp()
+					
+					另外的写法：
+						$http({
+						  method: 'xxx',
+						  url: 'xxx'
+						})
+    	*/
+	    let mod=angular.module('test', []);
+	
+	    mod.controller('main', function ($scope, $http){
+	    	//JSON_CALLBACK是一个占位符，真实的名字（请求到的数据）会替代掉它
+	      $http.jsonp(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=JSON_CALLBACK`).then(res=>{
+	        alert(res.data.s);
+	      }, ()=>{
+	        alert('错了');
+	      });
+	    });
+    </script>
+  </head>
+  <body ng-controller="main">
+
+  </body>
+</html>

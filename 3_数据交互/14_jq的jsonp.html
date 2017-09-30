@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script>
+	    $.ajax({
+	      url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+	      data: {wd: 'qq'},
+	      dataType: 'jsonp',
+	      jsonp: 'cb',
+	      success(res){
+	        console.log(res.s);
+	      },
+	      error(){
+	        alert('错了');
+	      }
+	    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

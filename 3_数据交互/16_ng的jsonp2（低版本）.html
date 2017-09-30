@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular-1.5.8.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('test', []);
+
+    mod.controller('main', function ($scope, $http){
+      $scope.arr=[];
+      $scope.word='';
+			//$scope.$watch()  数据的监听
+      $scope.$watch('word', function (){
+      	//JSON_CALLBACK是一个占位符，真是的名字会替代掉它
+        $http.jsonp(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${$scope.word}&cb=JSON_CALLBACK`).then(res=>{
+          $scope.arr=res.data.s;
+        }, ()=>{
+          alert('错了');
+        });
+      });
+    });
+    </script>
+  </head>
+  <body ng-controller="main">
+    <input type="text" ng-model="word">
+    <ul>
+      <li ng-repeat="str in arr">{{str}}</li>
+    </ul>
+  </body>
+</html>

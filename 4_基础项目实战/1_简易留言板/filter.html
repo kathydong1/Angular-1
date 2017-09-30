@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js" charset="utf-8"></script>
+  </head>
+  <body ng-init="time=1499005694906">
+  	<!--
+  		系统内置：
+	  		{{数据|过滤器:参数}}
+		  		y：年
+		  		MM：月
+		  		dd：日
+		  		HH：时
+		  		mm：分
+		  		ss：秒
+		  		hh：12小时制
+		  		a：显示上午还是下午
+  	-->
+    {{time|date:"y-MM-dd HH:mm:ss"}}
+    {{time|date:"y-MM-dd hh:mm:ss a"}}
+  </body>
+</html>
