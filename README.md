@@ -6,7 +6,7 @@
 
 		MVC   经典——数据(ajax、jsonp、数组、ng-model)、视图(HTML、CSS、动画、用户操作)、控制器
 		
-		MVP   C->P    M和V不耦合	P特别臃肿
+		MVP   C->P    M和V不耦合		P特别臃肿
 		
 		MVVM  M V VM
 
