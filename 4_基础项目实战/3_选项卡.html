@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+	    .box input{
+	    	background:#fff;
+	    	margin-left:20px;
+	    	outline: none;
+	    	padding: 5px 8px;
+	    	border-radius: 5px;
+	    	border:1px solid #000;
+	    	box-shadow: 1px 1px 3px #666;
+	    }
+	    .box input.active{background:yellow;}
+	    .box div{
+	    	width:200px;
+		    height:200px;
+		    background:#fff;
+		    border-radius:50%;
+		    border:1px solid #000;
+		    box-shadow: 1px 1px 6px #666;
+		    margin:20px 0 0 20px;
+		    font-size:50px;
+		    text-align:center;
+		    line-height:200px;
+		    color:red;
+		    display:none;
+		   }
+	    .box div.cur{display:block}
+    </style>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('test', []);
+
+    mod.controller('main', function ($scope){
+			$scope.now = 0;
+			$scope.items = {
+				'按钮1':'第一页',
+				'按钮2':'第二页',
+				'按钮3':'第三页'
+			}
+			$scope.tab = function(num){
+				$scope.now = num;
+			}
+    });
+    </script>
+  </head>
+  <body ng-controller="main">
+    <div class="box">
+    	<!--
+    		ng-click="now=$index"		x
+    		
+    		事件、赋值、循环
+				ng-click、=、ng-repeat
+				一见面就掐，那就让他们不见面
+    	-->
+      <input type="button" ng-repeat="(k,v) in items" value="{{k}}" class="{{$index==now?'active':''}}" ng-click="tab($index)">
+      <div ng-repeat="item in items" class="{{$index==now?'cur':''}}">{{item}}</div>
+    </div>
+  </body>
+</html>
