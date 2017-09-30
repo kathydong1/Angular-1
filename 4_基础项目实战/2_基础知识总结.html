@@ -53,19 +53,19 @@
 						b.引入一个模块
 							let commonMod=angular.module('common', []);
 							commonMod.config(function ($httpProvider){
-							  $httpProvider.defaults.transformRequest=function (obj){
-							    let arr=[];
+							  	$httpProvider.defaults.transformRequest=function (obj){
+							    	let arr=[];
 							
-							    for(let name in obj){
-							      arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
-							    }
+								    for(let name in obj){
+								      	arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
+								    }
 							
-							    return arr.join('&');
-							  };
-							  $httpProvider.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
+							    	return arr.join('&');
+							  	};
+							  	$httpProvider.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
 							});
 							
-				    $http.jsonp   版本
+				    $http.jsonp   ng的版本
 					    v1.6.4      改了一堆东西
 	    				
 			    		v1.5.*
@@ -82,8 +82,8 @@
 							
 							另外的写法：
 								$http({
-								  method: 'xxx',
-								  url: 'xxx'
+								  	method: 'xxx',
+								  	url: 'xxx'
 								})
 				  	$interval			重复定时器
 				  	$timeout			延时定时器
