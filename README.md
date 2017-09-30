@@ -1,5 +1,4 @@
 ## Angular
-### Angular的核心是数据
 
 ### 解决ng做post请求的方法
 
