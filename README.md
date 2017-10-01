@@ -44,6 +44,20 @@
 
 		$http.get
 		
+			let mod = angular.module('test',[])
+			mod.controller('main',function($scope,$http,$q){
+				$q.all([
+					$http.get('data/arr.txt'),
+					$http.get('data/json.txt')
+				]).then(res=>{
+					//console.log(res)
+					let [data1,data2] = res;
+					console.log(data1.data,data2.data)
+				},err=>{
+					alert('读取失败')
+				})
+			})
+		
 		$http.post		头、transform
 		
 			a.改个头
@@ -84,7 +98,7 @@
 				
 			v1.6.4之后
 			  	let res=$sce.trustAsResourceUrl('xxx');
-			  	$http.jsonp(, {jsonpCallbackParam: 'cb'}).then();
+			  	$http.jsonp(res, {jsonpCallbackParam: 'cb'}).then();
 			
 			三种：
 				$http.get()

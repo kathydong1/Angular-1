@@ -59,7 +59,7 @@
 				]).then(res=>{
 					//console.log(res)
 					let [data1,data2] = res;
-					console.log(data1,data2)
+					console.log(data1.data,data2.data)
 					$scope.arr = data1.data;
 					$scope.json = data2.data;
 				},err=>{
