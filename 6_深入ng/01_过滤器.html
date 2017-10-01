@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-init="arr=[{title:'Moso Mose设计感系带麂皮百搭时髦chic外套',price:188.00,time:1506857608532},
+						{title:'Moso Mose基础圆领光感丝滑雪纺面料休闲通勤衬衣',price:168.00,time:1505857608532},
+						{title:'Moso Mose露肩正常两穿绸缎感宽松舒适八分袖套头衫',price:159.00,time:1504857608532}]">
+		<ul>
+			<li ng-repeat="item in arr">
+				<h4>{{item.title}}</h4>
+				<span>{{item.price|currency:"¥"}}</span>
+				<em>{{item.time|date:"y年MM月dd日 HH:mm:ss"}}</em>
+			</li>
+		</ul>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			/*
+				系统内置：
+			  		{{数据|过滤器:参数}}
+				  		y：年
+				  		MM：月
+				  		dd：日
+				  		HH：时
+				  		mm：分
+				  		ss：秒
+				  		hh：12小时制
+				  		a：显示上午还是下午 
+			*/
+		</script>
+	</body>
+</html>

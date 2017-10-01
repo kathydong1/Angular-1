@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-init="arr=[{name: '张三', tel: '13548795648'},
+									  	{name: '小明', tel: '15887942587'},
+									  	{name: '小红', tel: '13548795648'}]">
+    <ul>
+      <li ng-repeat="item in arr">
+        <h4>{{item.name}}</h4>
+        <span>{{item.tel | hidetel:5}}</span>
+      </li>
+    </ul>
+    <script src="angular.js"></script>
+    <script>
+	    /*
+    		写个filter
+
+				数据|过滤器:参数
+								
+				mod.controller(名字, function (){
+				  //代码...
+				});
+				mod.filter(名字, function (){
+				  return function (){
+				    //代码...
+				  };
+				});
+				mod.directive(名字, function (){
+				  //代码...
+				}); 
+    	*/
+	    let mod=angular.module('test', []);
+	
+	    mod.filter('hidetel', function (){
+	    	//两个参数，第一个是传入的数据，第二个是过滤器的参数
+	    	//ES6 函数默认参数
+	      return function (data, len=4){
+	        //代码
+	        //data=>'13854788945'
+					//ES7 字符串前填充
+	        return data.substr(0,3)+''.padStart(len,'*')+data.substr(3+len);
+	      };
+	    });
+    </script>
+  </body>
+</html>
