@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="">
+  	<head>
+	    <meta charset="utf-8">
+	    <title></title>
+	    <script src="my-angular.js"></script>
+  	</head>
+  	<body>
+	    姓名：<input type="text" ng-model="name" /><br>
+	    年龄：<input type="text" ng-model="age" /><br>
+	    你填写的姓名是<span ng-bind="name"></span>，你填写的年龄是<span ng-bind="age"></span>
+	    <form action="http://www.baidu.com" method="get">
+	      	请确认：
+	      	<input type="text" name="user" ng-model="name"><br>
+	      	<input type="text" name="age" ng-model="age"><br>
+	      	<input type="submit" value="提交" />
+    	</form>
+  	</body>
+</html>

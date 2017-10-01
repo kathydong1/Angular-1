@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <meta charset="utf-8">
+	    <title></title>
+	    <script src="jquery.js"></script>
+	    <script>
+		    window.onload=function (){
+		      	let a='';
+		      	let oTxt1=document.getElementById('txt1');
+		      	let oTxt2=document.getElementById('txt2');
+		
+		      	//数据->input
+		      	function apply(){
+		        	oTxt1.value=a;
+		        	oTxt2.value=a;
+		      	}
+		
+		      	//input->数据
+		      	oTxt1.oninput=function (){
+		        	a=this.value;
+		
+		        	apply();
+		      	};
+		      	oTxt2.oninput=function (){
+		        	a=this.value;
+		
+		        	apply();
+		      	};
+		    };
+	    </script>
+	</head>
+	<body>
+		<input type="text" id="txt1">
+	    <input type="text" id="txt2">
+	</body>
+</html>

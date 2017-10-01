@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    	/*
+    		依赖注入：由函数选择自己的参数
+    	*/
+	    let providers={
+	      '$scope': 12,
+	      '$http': 5,
+	      '$interval': 88
+	    };
+	
+	    function show($scope, $interval, $http){
+	      console.log(arguments);
+	    }
+	
+	    //angular内部
+	    {	
+	    	//将函数转化为字符串，取得函数的参数
+	      let str=show.toString();
+	      str=str.split('{')[0];
+	      str=str.split('(')[1].replace(')', '');
+	      let args=str.split(',').map(s=>s.trim());
+	
+	      let values=[];
+	      for(let i=0;i<args.length;i++){
+	        values.push(providers[args[i]]);
+	      }
+	
+	      show.apply(null, values);
+	    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

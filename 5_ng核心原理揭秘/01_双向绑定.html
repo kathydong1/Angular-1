@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <meta charset="utf-8">
+	    <title></title>
+	    <script src="jquery.js"></script>
+	    <script>
+	    window.onload=function (){
+			let a='';
+			let oTxt=document.getElementById('txt1');
+			
+			function $interval(fn, time){
+			    setInterval(function (){
+			      	fn();
+			      	apply();
+			    }, time);
+			}
+			  
+			//数据->input
+			function apply(){
+			    oTxt.value=a;
+			}
+			  
+			$interval(function(){
+				a+=8;
+			},1000)
+	    };
+	    </script>
+	</head>
+	<body>
+    	<input type="text" id="txt1">
+  	</body>
+</html>

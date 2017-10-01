@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+    let mod=angular.module('test', []);
+
+    mod.controller('main', function ($scopee){
+      $scopee.a=12;
+    });
+    </script>
+  </head>
+  <body ng-controller="main">
+    {{a}}
+  </body>
+</html>

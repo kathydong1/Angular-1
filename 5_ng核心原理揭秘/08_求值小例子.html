@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+	    let $scope={a: 12, b: 5};
+	
+	    let str='a*b';
+	
+	    for(let name in $scope){
+	      str=str.replace(new RegExp(name, 'g'), `$scope.${name}`);
+	    }
+	
+	    alert(str);
+	
+	    alert(eval(str));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
