@@ -134,7 +134,7 @@
 		
 		$http.jsonp		ng的版本
 		
-		    v1.6.4		改了一堆东西
+			v1.6.4		改了一堆东西
 			
 			v1.5.*
 				$http.jsonp('xxx?cb=JSON_CALLBACK').then();
