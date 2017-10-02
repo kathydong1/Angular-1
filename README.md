@@ -208,7 +208,7 @@
 
 		ng-src		不报错
 		
-		ng-href
+		ng-href		和href类似
 
 > 
 
@@ -283,17 +283,17 @@
 > 
 
 		ng-options      <select>
-		  	ng-options="值 as 字 for xxx in arr"
+		  	ng-options="值  as  字  for  xxx  in  arr"
 		
 	  		ng-options——替你组织option
 		  	1.必须有ng-model
-		  	2.值   as 字 for item in arr
+		  	2.值  as  字  for  item  in  arr
 		
 		group
 		
-		值   as 字 group by 分类依据   for 名字 in 数组
+		值  as  字  group  by  分类依据  for  名字  in  数组
 		
-		item.id as item.name group by item.type for item in arr
+		item.id  as  item.name  group  by  item.type  for  item  in  arr
 		
 		[{id: 1, name: '北京', type: '直辖市'}, 
 		{id: 2, name: '上海', type: '直辖市'}, 
@@ -311,13 +311,13 @@
 > 
 
 		表单校验：
-		1.改用ng-form
-		  <form></form>           ×
-		  <ng-form></ng-form>     √
-		  
-		2.ng-form要加name
-		
-		3.每个表单元素需要ng-model
-		
-		4.校验的结果
-		  form1.email.$error
+			1.改用ng-form
+			  	<form></form>           ×
+			  	<ng-form></ng-form>     √
+			  
+			2.ng-form要加name
+			
+			3.每个表单元素需要ng-model
+			
+			4.校验的结果
+			  	form1.email.$error
