@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+  </head>
+  <body ng-init="a='模板1.html'">
+    <input type="button" value="页面1" ng-click="a='模板1.html'">
+    <input type="button" value="页面2" ng-click="a='模板2.html'">
+    <div ng-include="a"></div>
+  </body>
+</html>

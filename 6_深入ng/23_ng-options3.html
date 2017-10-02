@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+	    let mod=angular.module('test', []);
+	
+	    mod.controller('main', function ($scope){
+	      $scope.arr=[{id: 1, name: '北京', type: '直辖市'}, 
+	      						{id: 2, name: '上海', type: '直辖市'}, 
+	      						{id: 3, name: '深圳', type: '直辖市'}, 
+	      						{id: 4, name: '武汉', type: '省会'}, 
+	      						{id: 5, name: '郑州', type: '河南省'}, 
+	      						{id: 6, name: '洛阳', type: '河南省'}];
+	      $scope.city=1;
+	    });
+    </script>
+  </head>
+  <body ng-controller="main">
+    <select ng-model="city" ng-options="item.id as item.name group by item.type for item in arr"></select>
+    {{city}}
+  </body>
+</html>

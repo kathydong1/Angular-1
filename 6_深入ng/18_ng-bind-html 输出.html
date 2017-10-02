@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+    let mod=angular.module('test', []);
+		//用依赖项$sce的trustAsHtml包一下
+		//1.6.4 有这问题，低版本没有问题
+    mod.controller('main', function ($scope, $sce){
+      $scope.a=$sce.trustAsHtml('我叫<strong>Blue</strong>，我来自于<a href="http://it.kaikeba.com/">开课吧</a>');
+    });
+    </script>
+  </head>
+  <body ng-controller="main">
+    <div ng-bind-html="a"></div>
+  </body>
+</html>

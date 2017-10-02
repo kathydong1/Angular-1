@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+    let mod=angular.module('test', []);
+
+    mod.controller('main', function ($scope){
+      $scope.a='zyh';
+      $scope.b=18;
+    });
+    </script>
+  </head>
+  <body ng-controller="main">
+  	<div ng-bind-template="我的名字叫{{a}}，我的年龄{{b}}"></div>
+    <div>我的名字叫{{a}}，我的年龄{{b}}</div>
+  </body>
+</html>

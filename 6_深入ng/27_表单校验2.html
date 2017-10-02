@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+  </head>
+  <body>
+    <ng-form name="user_form" action="http://www.baidu.com/" method="post">
+      {{user_form.email.$error}}<br>
+      邮箱：<input type="email" ng-model="email" name="email" required />
+      <span ng-show="user_form.email.$error.required">必须填写邮箱</span>
+      <span ng-show="user_form.email.$error.email">请填写正确的邮箱</span>
+      <br>
+      密码：<input type="password" ng-model="pass" name="pass" /><br>
+      <input type="submit" value="提交">
+    </ng-form>
+  </body>
+</html>

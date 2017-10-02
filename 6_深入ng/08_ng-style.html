@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+  </head>
+  <body ng-init="a='width:200px;height:200px;background:#ccc';
+				b={width:'200px',height:'200px',background:'red'}">
+    <div style="{{a}}"></div>
+    <div ng-style="b"></div>
+  </body>
+</html>

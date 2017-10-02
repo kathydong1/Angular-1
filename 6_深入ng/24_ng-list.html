@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+  </head>
+  <body>
+    爱好：<input type="text" ng-model="fav" ng-list>
+    <dl>
+      <dt>你输入的是：</dt>
+      <dd ng-repeat="a in fav">{{a}}</dd>
+    </dl>
+  </body>
+</html>

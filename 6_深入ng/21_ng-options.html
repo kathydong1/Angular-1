@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="test">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script>
+	    let mod=angular.module('test', []);
+	
+	    mod.controller('main', function ($scope){
+	      $scope.arr=[{id: 1, name: '北京'}, 
+	      						{id: 2, name: '上海'}, 
+	      						{id: 3, name: '深圳'}, 
+	      						{id: 4, name: '武汉'}];
+	    });
+    </script>
+  </head>
+  <body ng-controller="main">
+    <select>
+      <option ng-repeat="item in arr" value="{{item.id}}">{{item.name}}</option>
+    </select>
+  </body>
+</html>

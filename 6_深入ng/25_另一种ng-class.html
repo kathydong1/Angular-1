@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <style media="screen">
+	    .box1 {color:red}
+	    .box2 {color: yellow}
+    </style>
+  </head>
+  <body ng-init="arr=[12,6,8,99,21,34]">
+    <ul>
+      <li ng-repeat="a in arr" ng-class-odd="['box1']" ng-class-even="['box2']">{{a}}</li>
+    </ul>
+  </body>
+</html>

@@ -30,21 +30,21 @@
 		   }
 	    .box div.cur{display:block}
     </style>
-    <script src="angular.js" charset="utf-8"></script>
+    <script src="angular.js"></script>
     <script>
-    let mod=angular.module('test', []);
-
-    mod.controller('main', function ($scope){
-			$scope.now = 0;
-			$scope.items = {
-				'按钮1':'第一页',
-				'按钮2':'第二页',
-				'按钮3':'第三页'
-			}
-			$scope.tab = function(num){
-				$scope.now = num;
-			}
-    });
+	    let mod=angular.module('test', []);
+	
+	    mod.controller('main', function ($scope){
+				$scope.now = 0;
+				$scope.items = {
+					'按钮1':'第一页',
+					'按钮2':'第二页',
+					'按钮3':'第三页'
+				}
+				$scope.tab = function(num){
+					$scope.now = num;
+				}
+	    });
     </script>
   </head>
   <body ng-controller="main">
