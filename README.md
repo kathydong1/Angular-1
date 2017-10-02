@@ -198,16 +198,19 @@
 		
 		ng-controller 	控制器
 
+> 
 
 		ng-show/hide  显示隐藏    block/none
 		
 		ng-if         元素是否存在
 
+> 
 
 		ng-src		不报错
 		
 		ng-href
 
+> 
 
 		ng-style
 		  	<div style="width:200px;height:200px;background:#ccc;">
@@ -223,9 +226,11 @@
 		  	class="{{a}}"
 		  	ng-class="[...]"
 
+> 
 
 		ng-cloak      没加载完之前，先隐藏
 
+> 
 
 		ng-value    	value="xxx"
 		
@@ -237,6 +242,7 @@
 		
 		ng-checked  	checked			默认选中
 
+> 
 
 		ng-switch
 		  	switch(xxx){
@@ -249,9 +255,11 @@
 	  	ng-switch="xxx"
 	  	ng-switch-when="xxx"
 
+> 
 
 		ng-jq           指定另一个jq兼容库作为angular内部使用
 
+> 
 
 		ng-bind         输出，把HTML按照文字输出
 		
@@ -264,6 +272,7 @@
 		ng-bind-template
 			ng-bind-template="sfassdasf{{z}}dswerr{{a}}"
 
+> 
 
 		ng-include      包含一个文件
 		  	ng-include="a"
@@ -271,6 +280,7 @@
 		  	
 		  	*注意地址——localhost
 
+> 
 
 		ng-options      <select>
 		  	ng-options="值 as 字 for xxx in arr"
@@ -292,11 +302,13 @@
 		{id: 5, name: '郑州', type: '河南省'}, 
 		{id: 6, name: '洛阳', type: '河南省'}]
 
+> 
 
 		<ng-form name="xxx">
 		
 		</ng-form>
 
+> 
 
 		表单校验：
 		1.改用ng-form
