@@ -54,7 +54,7 @@
     		
     		事件、赋值、循环
 				ng-click、=、ng-repeat
-				一见面就掐，那就让他们不见面
+				一见面就掐，惹不起，躲得起
     	-->
       <input type="button" ng-repeat="(k,v) in items" value="{{k}}" class="{{$index==now?'active':''}}" ng-click="tab($index)">
       <div ng-repeat="item in items" class="{{$index==now?'cur':''}}">{{item}}</div>

@@ -81,7 +81,8 @@
 
 		$scope.$apply()		数据的检查
 		
-		$scope.$watch('数据',function(){})		数据的监听
+		$scope.$watch('数据',function(){},false)		数据的监听
+		最后一个参数默认为false，如果是true的情况，则是监控内容
 
 > $http		数据请求
 
