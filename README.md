@@ -4,11 +4,42 @@
 
 ### Angular是什么——MVVM
 
-		MVC   经典——数据(ajax、jsonp、数组、ng-model)、视图(HTML、CSS、动画、用户操作)、控制器
+		原始：
+			MVC模式
+				M   Model       模型-数据
+				V   View        视图-表现层        HTML/CSS
+				C   Controller  控制器-业务逻辑
+				
+				缺点:
+					1.M和V耦合度高
+					2.C特别臃肿
+				
+				M和V直接打交道，就会出现一个问题（耦合的问题），视图或者数据的变化都会影响另一方，C特别臃肿
 		
-		MVP   C->P    M和V不耦合		P特别臃肿
-		
-		MVVM  M V VM
+		变种：
+			MVP
+				M   Model       模型-数据
+				V   View        视图-表现层        HTML/CSS
+				P   Presenter   主持人
+				
+				缺点:
+				1.M和V没有耦合
+				2.P特别特别臃肿
+				
+			M和V没有直接关系，P从中间控制，视图或者数据的变化，只需要P做修改，P特别特别臃肿
+
+			MVVM	Angular属于典型的MVVM模式
+			
+				M   Model       模型-数据
+				V   View        视图-表现层        HTML/CSS
+				VM    ViewModel
+				
+				缺点:
+					1.M和V没有耦合
+					2.VM还好
+					3.把一部分简单逻辑放进HTML里面
+				
+				把一部分归视图层管的事拉到自己身上，把一部分归M层管的事拉到自己身上
 
 ### 指令（*为常用指令）
 
