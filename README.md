@@ -335,7 +335,7 @@
 			4.校验的结果
 			  	form1.email.$error
 
-### 自定义filter
+### 自定义过滤器(filter)
 
 		mod.filter(名字, function (){
 		  return function (){
@@ -343,7 +343,7 @@
 		  };
 		});
 
-### 自定义directive
+### 自定义指令(directive)
 
 		app.directive('名字', function (){
 			return {
@@ -371,3 +371,102 @@
 		针对C：
 			HTML里：中划线		my-close
 			JS里：驼峰命名		myClose
+
+### 模块依赖
+
+		angular.module('名字', [])
+		.controller()
+		.filter();
+		
+		1.页面引用
+		ng-app="名字"
+		
+		2.模块依赖
+		angular.module('名字2', ['名字']);	
+			注意：
+				同名：后面的模块会覆盖前面的模块
+
+### 自定义依赖项
+
+		1.最简单——factory
+			app.factory(名字, function (){
+				return 内容;
+			});
+		
+		2.强大——provider
+			//provider		供应者
+			app.provider(名字, function (){
+				this.$get=function (){
+					return 内容
+				};
+			});
+		
+			大致意思(只是帮助理解，不真实)
+				//factory：
+				app.factory()->1个
+				app.factory()->2个
+			
+				//angular会：
+				var pro=new provider();
+				pro.$get()->1个
+				pro.$get()->2个
+		
+		3.服务——service
+			app.service(名字, function (){
+				this...
+			});
+		
+		三者区别：
+			factory——简单
+			app.factory(名字, function (){
+				return {...};
+			});
+		
+			provider——强大：可配置的
+			app.provider(名字, function (){
+				this.$get=function (){
+					return {...};
+				};
+			});
+		
+			service——类似于构造函数
+			app.service(名字, function (){
+					this...
+			});
+		
+		4.constant——常量(不可装饰)
+		
+		5.value——变量
+		
+		依赖项只会创建一次：
+			依赖项的状态在不同的地方是共享的
+
+### 依赖修饰
+
+		修改依赖
+			会修改原始的依赖，原来的依赖就变了
+		
+		app.decorator('依赖的名字', function ($delegate){
+			$delegate	依赖项的东西
+		
+			return		修改后的依赖($delegate);
+		});
+
+### 数据共享
+
+		数据共享——多个Controller之间
+		1.父子Controller
+			$scope能继承——复制了$scope
+			*不能叫同步，只是复制
+		
+		消息机制(事件)：
+			$scope.$emit('名字', 数据);		触发：自己+父级，向上发送
+			$scope.$broadcast('名字', 数据);	触发：自己+子级，向下放松
+			$scope.$on('名字', 数据);			接收
+		
+		2.无关（毫无关联）Controller
+			用自定义依赖来存储数据
+			*factory、service、provider——创建的依赖只有一个
+
+### ng-route(路由)
+

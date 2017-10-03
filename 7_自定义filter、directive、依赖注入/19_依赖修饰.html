@@ -12,8 +12,8 @@
 		app.decorator('依赖的名字', function ($delegate){
 			$delegate	依赖项的东西
 		
-			return		修改后的依赖;
-		}); 
+			return		修改后的依赖($delegate);
+		});
 	*/
 	var app=angular.module('test', []);
 	
