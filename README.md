@@ -362,7 +362,7 @@
 				*必须两边空格
 		
 		
-		transclude-嵌入、包裹
+		transclude——嵌入、包裹
 			1.transclude: true
 			2.占位符——原始内容
 				<ng-transclude></ng-transclude> 
@@ -455,18 +455,18 @@
 ### 数据共享
 
 		数据共享——多个Controller之间
-		1.父子Controller
-			$scope能继承——复制了$scope
-			*不能叫同步，只是复制
-		
-		消息机制(事件)：
-			$scope.$emit('名字', 数据);		触发：自己+父级，向上发送
-			$scope.$broadcast('名字', 数据);	触发：自己+子级，向下放松
-			$scope.$on('名字', 数据);			接收
-		
-		2.无关（毫无关联）Controller
-			用自定义依赖来存储数据
-			*factory、service、provider——创建的依赖只有一个
+			1.父子Controller
+				$scope能继承——复制了$scope
+				*不能叫同步，只是复制
+			
+			消息机制(事件)：
+				$scope.$emit('名字', 数据);		触发：自己+父级，向上发送
+				$scope.$broadcast('名字', 数据);	触发：自己+子级，向下放松
+				$scope.$on('名字', 数据);			接收
+			
+			2.无关（毫无关联）Controller
+				用自定义依赖来存储数据
+				*factory、service、provider——创建的依赖只有一个
 
 ### ng-route(路由)
 
@@ -487,6 +487,7 @@
 				.when('地址2', {配置2})
 				.when('地址3', {配置3});
 			});
+		
 		4.添加插入点
 			<ng-view></ng-view>
 
@@ -536,7 +537,8 @@
 
 > 延迟加载
 
-	resolve参数，用promise方式实现页面数据的延迟加载
+	resolve参数，用Promise方式实现页面数据的延迟加载
+		
 		resolve: {
 			  delay: function($q) {
 				var delay=$q.defer();
@@ -559,7 +561,7 @@
 
 > Route参数
 
-		$routeParams
+		$routeParams		可以获取当前路径参数
 
 
 > 模板的另一种写法
