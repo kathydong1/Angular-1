@@ -556,7 +556,7 @@
 		$routeChangeError
 		
 		$scope.$on("$routeChangeStart",function(){
-			
+			//代码...
 		});
 
 > Route参数
