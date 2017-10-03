@@ -581,14 +581,16 @@
 
 		ng1.6版本之前通常有href="#..."或href="#/..."这两种写法
 		ng升级到了1.6版本后，里面多了很多/#!/的改动
+		
 		解决方案一：
 			在html页面a标签上将href的属性值添加一个!号就可以了
-			<p><a href="#!/addStudent">添加学生</a></p>  
-			<p><a href="#!/viewStudents">查看学生</a></p>  
+			<p><a href="#!/addStudent">添加学生</a></p>
+			<p><a href="#!/viewStudents">查看学生</a></p>
+		
 		解决方案二：
 			如果想让路由依旧表现的与之前版本的一致可以这样做：
-			mainApp.config(["$locationProvider","$routeProvider",function($locationProvider,$routeProvider){  
-			        $locationProvider.hashPrefix('');  
+			mainApp.config(["$locationProvider","$routeProvider",function($locationProvider,$routeProvider){
+			        $locationProvider.hashPrefix('');
 			}]);
-			<p><a href="#addStudent">添加学生</a></p>  
-			<p><a href="#viewStudents">查看学生</a></p> 
+			<p><a href="#addStudent">添加学生</a></p>
+			<p><a href="#viewStudents">查看学生</a></p>
