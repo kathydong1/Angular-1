@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+<script>
+	/*
+		restrict
+			E	Element			元素
+			A	Attribute		属性
+			C	Class			类
+			M	Comment			注释
+				*必须加上replace
+				*必须两边空格 
+	*/
+	var app=angular.module("test", []);
+	
+	app.directive('abc', function (){
+		var json={
+			restrict: 'A',					//约束-指令能用在哪儿
+			template: '<span>abc</span>'	//模板
+		};
+		
+		return json;
+	});
+</script>
+</head>
+
+<body>
+	<div abc=""></div>
+</body>
+</html>

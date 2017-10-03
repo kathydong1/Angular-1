@@ -35,9 +35,10 @@
 	    let mod=angular.module('test', []);
 	
 	    mod.filter('hidetel', function (){
+	    	//只执行一次
 	    	//两个参数，第一个是传入的数据，第二个是过滤器的参数
 	      return function (data, arg){
-	        //代码
+	        //用几次执行几次
 	        //data=>'13854788945'
 	
 	        return data.substr(0,3)+'****'+data.substr(7);

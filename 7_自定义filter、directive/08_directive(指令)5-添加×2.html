@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+<script>
+	/*
+		transclude-嵌入、包裹
+			1.transclude: true
+			2.占位符——原始内容
+				<ng-transclude></ng-transclude> 
+			3.属性(可作为某个标签的属性)
+				<span ng-transclude><span>
+	*/
+	var app=angular.module("test", []);
+	
+	app.directive('myclose', function (){
+		var json={
+			restrict: 'A',
+			template: '<a href="javascript:;">×<ng-transclude></ng-transclude>x</a>',
+			transclude: true
+		};
+		
+		return json;
+	});
+</script>
+</head>
+
+<body>
+    <ul>
+    	<li myclose>文章1</li>
+    	<li myclose>文章2</li>
+    	<li myclose>文章3</li>
+    	<li>文章4</li>
+    	<li>文章5</li>
+    </ul>
+</body>
+</html>

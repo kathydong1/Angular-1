@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	.more {width:300px; height:60px; line-height:20px; overflow:hidden; border:1px solid black;}
+	.more2 {width:300px; line-height:20px; overflow:hidden; border:1px solid black;}
+</style>
+<script src="angular.js"></script>
+<script>
+	var app=angular.module('test', []);
+
+	app.controller('main', function ($scope){
+		$scope.show=false;
+	});
+	app.directive('showmore', function (){
+		return {
+			restrict: 'E',
+			template:`<div class="{{show?'more2':'more'}}">
+						<a href="javascript:;" ng-click="show=!show">显示更多</a>
+						<span ng-transclude></span>
+					</div>`,
+			transclude: true
+		};
+	});
+</script>
+</head>
+
+<body ng-controller="main">
+<showmore>
+	我期待 有一天我会回来<br />
+	回到我最初的爱 回到童真的神采<br />
+	我期待 有一天我会明白<br />
+	明白人世的至爱 明白原始的情怀<br />
+	我情愿 分合的无奈<br />
+	能换来春夜的天籁<br />
+	我情愿 现在与未来<br />
+	能充满秋凉的爽快<br />
+	say goodbye say goodbye<br />
+	前前后后迂迂回回地试探<br />
+	say goodbye say goodbye<br />
+	昂首阔步不留一丝遗憾<br />
+</showmore>
+</body>
+</html>
