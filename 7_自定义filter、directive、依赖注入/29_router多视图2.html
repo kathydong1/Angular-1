@@ -23,7 +23,16 @@
 			'/list',
 			{
 				templateUrl: 'views/list.html',
-				controller: 'listController'
+				controller: 'listController',
+				resolve: {
+					delay: function($q) {
+						var delay=$q.defer();
+						setTimeout(function (){
+							delay.resolve();	//resolve执行
+						}, 3000);
+						return delay.promise;
+					}
+				}
 			}
 		)
 		.when(
@@ -43,7 +52,7 @@
 	<ng-view></ng-view>
 	<script type="text/ng-template" id="setting.html">
 		<ul>
-			<li>JavaScript模板</li>
+			<li>JavaScript配置模板</li>
 		</ul>
 	</script>
 </body>

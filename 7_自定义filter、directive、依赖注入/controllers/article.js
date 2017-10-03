@@ -2,13 +2,13 @@ angular.module('articleMod', [])
 .controller('articleController', function ($scope, $routeParams){
 	switch($routeParams.type){
 		case 'sport':
-			$scope.arr=['新闻1', '新闻222', '新闻33', '新闻44', '新闻55', '66223'];
+			$scope.arr=['体育1', '体育2', '体育3', '体育4', '体育5', '体育6'];
 			break;
 		case 'game':
-			$scope.arr=['aaa1', 'bbb222', '新闻eee', '新闻44', '新闻55', '66223'];
+			$scope.arr=['游戏1', '游戏2', '游戏3', '游戏4', '游戏5', '游戏6'];
 			break;
 		case 'news':
-			$scope.arr=['新dsfasdf', 'adsfasd222', '45yhfh33', '新闻hfghfgh', '新闻55', '66223'];
+			$scope.arr=['新闻1', '新闻2', '新闻3', '新闻4', '新闻5', '新闻6'];
 			break;
 	}
 });

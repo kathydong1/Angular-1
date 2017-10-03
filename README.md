@@ -389,13 +389,13 @@
 ### 自定义依赖项
 
 		1.最简单——factory
-			app.factory(名字, function (){
+			app.factory('名字', function (){
 				return 内容;
 			});
 		
 		2.强大——provider
 			//provider		供应者
-			app.provider(名字, function (){
+			app.provider('名字', function (){
 				this.$get=function (){
 					return 内容
 				};
@@ -412,25 +412,25 @@
 				pro.$get()->2个
 		
 		3.服务——service
-			app.service(名字, function (){
+			app.service('名字', function (){
 				this...
 			});
 		
 		三者区别：
 			factory——简单
-			app.factory(名字, function (){
+			app.factory('名字', function (){
 				return {...};
 			});
 		
 			provider——强大：可配置的
-			app.provider(名字, function (){
+			app.provider('名字', function (){
 				this.$get=function (){
 					return {...};
 				};
 			});
 		
 			service——类似于构造函数
-			app.service(名字, function (){
+			app.service('名字', function (){
 					this...
 			});
 		
@@ -470,3 +470,123 @@
 
 ### ng-route(路由)
 
+> 1.根据不同的URL，调用不同的代码，把数据直接放到#后面(hash)，当刷新页面时也能保存状态
+
+> 2.特别适合App单页应用
+
+		1.引入文件
+			<script src="js/angular-route.js"></script>
+		
+		2.引入ngRoute模块
+			var app=angular.module('名字', ['ngRoute']);
+		
+		3.配置route
+			app.config(function ($routeProvider){
+				$routeProvider
+				.when('地址1', {配置1})
+				.when('地址2', {配置2})
+				.when('地址3', {配置3});
+			});
+		4.添加插入点
+			<ng-view></ng-view>
+
+### Route配置说明
+
+		template-HTML模板
+			例如：'<div>{{a}}</div>'
+		
+		templateUrl-HTML模板地址
+			例如：'views/1.html'
+		
+		controller-route所依赖的控制器
+			例如：'userCont'
+
+> 例子：最简单的路由使用
+
+		HTML部分：
+			<script src="js/angular.js"></script>
+			<script src="js/angular-route.js"></script>
+			<div ng-controller="cont1">
+				<a href="#/user/">用户中心</a>
+				<a href="#/article/">文章管理</a>
+				<ng-view></ng-view>
+			</div>
+		
+		JS部分：
+		var app=angular.module('page1', ['ngRoute']);
+		app.controller('cont1', function (){
+		}).controller('userCont', function ($scope){
+			$scope.a=12;
+		}).controller('artCont', function ($scope){
+			$scope.b=55;
+		});
+		
+		//配置部分
+		app.config(function ($routeProvider){
+			$routeProvider
+			.when('/user/', {
+				templateUrl: 'views/v1.html',
+				controller: 'userCont',
+			})
+			.when('/article/', {
+				templateUrl: 'views/v2.html',
+				controller: 'artCont'
+			});
+		});
+
+> 延迟加载
+
+	resolve参数，用promise方式实现页面数据的延迟加载
+		resolve: {
+			  delay: function($q) {
+				var delay=$q.defer();
+				setTimeout(function (){
+					delay.resolve();	//resolve执行
+				}, 3000);
+				return delay.promise;
+			  }
+		}
+
+> Route事件
+
+		$routeChangeStart
+		$routeChangeSuccess
+		$routeChangeError
+		
+		$scope.$on("$routeChangeStart",function(){
+			
+		});
+
+> Route参数
+
+		$routeParams
+
+
+> 模板的另一种写法
+
+	定义模板：
+	<script type="text/ng-template" id="v3.html">
+		模板内容...
+	</script>
+	
+	使用模板和HTML文件一样：
+	.when('/blog/', {
+		templateUrl: 'v3.html',
+		controller: 'blogCont'
+	});
+
+> ng1.6版本路由中/#!/的解决方法
+
+		ng1.6版本之前通常有href="#..."或href="#/..."这两种写法
+		ng升级到了1.6版本后，里面多了很多/#!/的改动
+		解决方案一：
+			在html页面a标签上将href的属性值添加一个!号就可以了
+			<p><a href="#!/addStudent">添加学生</a></p>  
+			<p><a href="#!/viewStudents">查看学生</a></p>  
+		解决方案二：
+			如果想让路由依旧表现的与之前版本的一致可以这样做：
+			mainApp.config(["$locationProvider","$routeProvider",function($locationProvider,$routeProvider){  
+			        $locationProvider.hashPrefix('');  
+			}]);
+			<p><a href="#addStudent">添加学生</a></p>  
+			<p><a href="#viewStudents">查看学生</a></p> 
