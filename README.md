@@ -338,9 +338,9 @@
 ### 自定义过滤器(filter)
 
 		mod.filter(名字, function (){
-		  return function (){
-		    //代码...
-		  };
+		  	return function (){
+		    	//代码...
+		  	};
 		});
 
 ### 自定义指令(directive)
