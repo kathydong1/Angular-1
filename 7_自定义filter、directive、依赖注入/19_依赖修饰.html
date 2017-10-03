@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+<script>
+	/*
+		修改依赖
+			会修改原始的依赖，原来的依赖就变了
+
+		app.decorator('依赖的名字', function ($delegate){
+			$delegate	依赖项的东西
+		
+			return		修改后的依赖;
+		}); 
+	*/
+	var app=angular.module('test', []);
+	
+	app.factory('main', function (){
+		return {
+			a: 12,
+			b: 5
+		};
+	});
+	
+	app.decorator('main', function ($delegate){
+		$delegate.c=99;
+		
+		return $delegate;
+	});
+	
+	app.controller('cont1', function ($scope, main){
+		console.log('main', main);
+	});
+</script>
+</head>
+
+<body ng-controller="cont1">
+
+</body>
+</html>

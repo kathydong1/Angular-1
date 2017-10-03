@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+<script>
+	/*
+		消息机制(事件)：
+			$scope.$emit('名字', 数据);		触发：自己+父级，向上发送
+			$scope.$broadcast('名字', 数据);	触发：自己+子级，向下发送
+			$scope.$on('名字', 数据);			接收 
+	*/
+	var app=angular.module('test', []);
+	
+	app.controller('cont1', function ($scope){
+		$scope.fn=function (){
+			$scope.$broadcast('testevent', {a: 12, b: 5});
+		};
+	});
+	app.controller('cont2', function ($scope){
+		$scope.$on('testevent', function (event, data){
+			//event——事件对象
+			//data——数据
+			alert('我接到事件了');
+			console.log(data);
+		});
+	});
+</script>
+</head>
+
+<body>
+<div  ng-controller="cont1">
+	<a href="javascript:;" ng-click="fn();">触发事件</a>
+	<div ng-controller="cont2"></div>
+</div>
+</body>
+</html>

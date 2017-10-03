@@ -334,3 +334,40 @@
 			
 			4.校验的结果
 			  	form1.email.$error
+
+### 自定义filter
+
+		mod.filter(名字, function (){
+		  return function (){
+		    //代码...
+		  };
+		});
+
+### 自定义directive
+
+		app.directive('名字', function (){
+			return {
+				restrict: E/A/C/M		标签/属性/class/注释
+				template: '插入的内容'
+			};
+		});
+		
+		
+		restrict
+			E	Element			元素
+			A	Attribute		属性
+			C	Class			类
+			M	Comment			注释
+				*必须加上replace:true
+				*必须两边空格
+		
+		
+		transclude-嵌入、包裹
+			1.transclude: true
+			2.占位符——原始内容
+				<ng-transclude></ng-transclude> 
+			3.属性(可作为某个标签的属性)
+				<span ng-transclude><span>
+		针对C：
+			HTML里：中划线		my-close
+			JS里：驼峰命名		myClose

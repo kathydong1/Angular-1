@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app="test">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+<script src="angular-route.js"></script>
+<script src="controllers/user.js"></script>
+<script src="controllers/list.js"></script>
+<script>
+	var app=angular.module('test', ["ngRoute", "userMod", "listMod"]);
+	
+	app.config(function ($routeProvider){
+		$routeProvider
+		.when(
+			'/user',
+			{
+				templateUrl: 'views/user.html',
+				controller: 'userController'
+			}
+		)
+		.when(
+			'/list',
+			{
+				templateUrl: 'views/list.html',
+				controller: 'listController'
+			}
+		)
+		.when(
+			'/setting',
+			{
+				templateUrl: 'setting.html'
+			}
+		);
+	});
+</script>
+</head>
+
+<body>
+	<a href="#!/user">用户中心</a>
+	<a href="#!/list">文章列表</a>
+	<a href="#!/setting">配置信息</a>
+	<ng-view></ng-view>
+	<script type="text/ng-template" id="setting.html">
+		<ul>
+			<li>JavaScript模板</li>
+		</ul>
+	</script>
+</body>
+</html>

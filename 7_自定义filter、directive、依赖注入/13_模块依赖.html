@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="angular.js"></script>
+<script>
+	/*
+		angular.module('名字', [])
+		.controller()
+		.filter();
+		
+		1.页面引用
+		ng-app="名字"
+		
+		2.模块依赖
+		angular.module('名字2', ['名字']);	
+			注意：
+				同名：后面的模块会覆盖前面的模块
+	*/
+	angular.module('mod1', [])
+	.controller('cont1', function ($scope){
+		$scope.a=100;
+	}).filter('myFilter', function (){
+		return function (input){
+			return input+20;
+		};
+	});
+	
+	angular.module('mod2', [])
+	.controller('cont2', function ($scope){
+		$scope.b=200;
+	}).filter('myFilter', function (){
+		return function (input){
+			return input+'abc';
+		};
+	});
+	
+	angular.module('mod3', ['mod2', 'mod1']);
+	angular.module('mod4', ['mod1', 'mod2']);
+</script>
+</head>
+
+<body ng-app="mod4">
+	<div ng-controller="cont1">
+		{{a|myFilter}}
+	</div>
+	<div ng-controller="cont2">
+		{{b|myFilter}}
+	</div>
+</body>
+</html>
