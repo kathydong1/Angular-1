@@ -39,7 +39,8 @@
 
 	app.controller('main', function ($scope){
 		$scope.loading=false;
-		$scope.$on('$routeChangeStart', function (){
+		$scope.$on('$routeChangeStart', function (event,path,prev){
+			console.log(event,path,prev)
 			$scope.loading=true;
 			//alert('换页开始');
 		});
