@@ -199,23 +199,23 @@
 
 ### 指令总结
 
-		ng-app        	范围；引入模块
+		ng-app        		范围；引入模块
 		
-		ng-model      	双向绑定    数据<->UI
+		ng-model      		双向绑定    数据<->UI
 		
-		ng-bind       	输出
+		ng-bind       		输出
 		
-		ng-事件       	ng-click/dblclick/mousedown...
+		ng-事件       		ng-click/dblclick/mousedown...
 		
-		ng-init       	初始化
+		ng-init       		初始化
 		
-		ng-controller 	控制器
+		ng-controller 		控制器
 
 > 
 
-		ng-show/hide  	显示隐藏	block/none
+		ng-show/hide		显示隐藏	block/none
 		
-		ng-if         	元素是否存在
+		ng-if         		元素是否存在
 
 > 
 
@@ -241,19 +241,19 @@
 
 > 
 
-		ng-cloak      没加载完之前，先隐藏
+		ng-cloak			没加载完之前，先隐藏
 
 > 
 
-		ng-value    	value="xxx"
+		ng-value    		value="xxx"
 		
-		ng-readonly 	readonly		禁止用户输入
+		ng-readonly 		readonly		禁止用户输入
 		
-		ng-selected 	selected		默认显示哪个
+		ng-selected 		selected		默认显示哪个
 		
-		ng-disabled 	disabled		默认不能点选
+		ng-disabled 		disabled		默认不能点选
 		
-		ng-checked  	checked			默认选中
+		ng-checked  		checked			默认选中
 
 > 
 
