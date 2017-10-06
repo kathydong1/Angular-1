@@ -302,8 +302,8 @@
 		  	ng-options="值  as  字  for  xxx  in  arr"
 		
 	  		ng-options——替你组织option
-		  	1.必须有ng-model
-		  	2.值  as  字  for  item  in  arr
+			  	1.必须有ng-model
+			  	2.值  as  字  for  item  in  arr
 		
 		group
 		
@@ -390,12 +390,12 @@
 		.filter();
 		
 		1.页面引用
-		ng-app="名字"
+			ng-app="名字"
 		
 		2.模块依赖
-		angular.module('名字2', ['名字']);	
-			注意：
-				同名：后面的模块会覆盖前面的模块
+			angular.module('名字2', ['名字']);	
+				注意：
+					同名：后面的模块会覆盖前面的模块
 
 ### 自定义依赖项
 
@@ -479,9 +479,9 @@
 			
 			消息机制(事件)：
 			
-				$scope.$emit('名字', 数据);		触发：自己+父级，向上发送
-				$scope.$broadcast('名字', 数据);	触发：自己+子级，向下放松
-				$scope.$on('名字', 数据);			接收
+				$scope.$emit('名字', 数据);			触发：自己+父级，向上发送
+				$scope.$broadcast('名字', 数据);		触发：自己+子级，向下放松
+				$scope.$on('名字', 数据);				接收
 			
 			2.无关（毫无关联）Controller
 			
