@@ -43,25 +43,25 @@
 
 ### 指令（*为常用指令）
 
-		*ng-model               双向绑定
+		*ng-model               		双向绑定
 		
-		ng-bind                 单向绑定(只输出)
+		ng-bind                 		单向绑定(只输出)
 		
 		{{}}					表达式
 		
-		ng-init                 初始化
+		ng-init                 		初始化
 		
-		*ng-repeat              循环
+		*ng-repeat              		循环
 		
-		ng-repeat="item in arr/json" $index
+		ng-repeat="item in arr/json" 	$index
 		
 		ng-repeat="(key,value) in arr/json"
 		
-		*ng-click/mouseover...   事件
+		*ng-click/mouseover...   		事件
 		
-		*ng-controller           控制器
+		*ng-controller           		控制器
 		
-		*ng-app                  引入模块
+		*ng-app                  		引入模块
 
 ### controller——功能、大段代码
 
