@@ -472,6 +472,7 @@
 ### 数据共享
 
 		数据共享——多个Controller之间
+		
 			1.父子Controller
 			
 				$scope能继承——复制了$scope
