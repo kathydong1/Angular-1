@@ -124,9 +124,9 @@
 				  	$httpProvider.defaults.transformRequest=function (obj){
 				    	let arr=[];
 				
-					    for(let name in obj){
-					      	arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
-					    }
+						for(let name in obj){
+						  	arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
+						}
 				
 				    	return arr.join('&');
 				  	};
@@ -172,16 +172,16 @@
 ```
 	let commonMod=angular.module('common', []);
 	commonMod.config(function ($httpProvider){
-	  $httpProvider.defaults.transformRequest=function (obj){
-	    let arr=[];
+	  	$httpProvider.defaults.transformRequest=function (obj){
+	    	let arr=[];
 	
-	    for(let name in obj){
-	      arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
-	    }
+	    	for(let name in obj){
+	      		arr.push(`${encodeURIComponent(name)}=${encodeURIComponent(obj[name])}`);
+	    	}
 	
-	    return arr.join('&');
-	  };
-	  $httpProvider.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
+	    	return arr.join('&');
+	  	};
+	  	$httpProvider.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
 	});
 ```
 
@@ -277,17 +277,19 @@
 		ng-bind         输出，把HTML按照文字输出
 		
 		ng-bind-html    输出，把HTML本身输出到页面
+			
 		  	*$sce.trustAsHtml(html代码)
 		  	
 		  	用依赖项$sce的trustAsHtml包一下
 			1.6.4 有这问题，低版本没有问题
 		
 		ng-bind-template
-			ng-bind-template="sfassdasf{{z}}dswerr{{a}}"
+			ng-bind-template="我的名字{{name}}年龄{{age}}"
 
 > 
 
 		ng-include      包含一个文件
+			
 		  	ng-include="a"
 		  	ng-include="'1.html'"
 		  	
@@ -296,6 +298,7 @@
 > 
 
 		ng-options      <select>
+		
 		  	ng-options="值  as  字  for  xxx  in  arr"
 		
 	  		ng-options——替你组织option
@@ -324,6 +327,7 @@
 > 
 
 		表单校验：
+		
 			1.改用ng-form
 			  	<form></form>           ×
 			  	<ng-form></ng-form>     √
@@ -355,17 +359,24 @@
 		
 		restrict
 			E	Element			元素
+			
 			A	Attribute		属性
+			
 			C	Class			类
+			
 			M	Comment			注释
+			
 				*必须加上replace:true
 				*必须两边空格
 		
 		
 		transclude——嵌入、包裹
+		
 			1.transclude: true
+			
 			2.占位符——原始内容
-				<ng-transclude></ng-transclude> 
+				<ng-transclude></ng-transclude>
+				
 			3.属性(可作为某个标签的属性)
 				<span ng-transclude><span>
 		针对C：
@@ -417,33 +428,39 @@
 			});
 		
 		三者区别：
+		
 			factory——简单
-			app.factory('名字', function (){
-				return {...};
-			});
+			
+				app.factory('名字', function (){
+					return {...};
+				});
 		
 			provider——强大：可配置的
-			app.provider('名字', function (){
-				this.$get=function (){
-					return {...};
-				};
-			});
+			
+				app.provider('名字', function (){
+					this.$get=function (){
+						return {...};
+					};
+				});
 		
 			service——类似于构造函数
-			app.service('名字', function (){
+			
+				app.service('名字', function (){
 					this...
-			});
+				});
 		
 		4.constant——常量(不可装饰)
 		
 		5.value——变量
 		
 		依赖项只会创建一次：
+		
 			依赖项的状态在不同的地方是共享的
 
 ### 依赖修饰
 
 		修改依赖
+		
 			会修改原始的依赖，原来的依赖就变了
 		
 		app.decorator('依赖的名字', function ($delegate){
@@ -456,15 +473,18 @@
 
 		数据共享——多个Controller之间
 			1.父子Controller
+			
 				$scope能继承——复制了$scope
 				*不能叫同步，只是复制
 			
 			消息机制(事件)：
+			
 				$scope.$emit('名字', 数据);		触发：自己+父级，向上发送
 				$scope.$broadcast('名字', 数据);	触发：自己+子级，向下放松
 				$scope.$on('名字', 数据);			接收
 			
 			2.无关（毫无关联）Controller
+			
 				用自定义依赖来存储数据
 				*factory、service、provider——创建的依赖只有一个
 
@@ -475,12 +495,15 @@
 > 2.特别适合App单页应用
 
 		1.引入文件
+		
 			<script src="js/angular-route.js"></script>
 		
 		2.引入ngRoute模块
+		
 			var app=angular.module('名字', ['ngRoute']);
 		
 		3.配置route
+		
 			app.config(function ($routeProvider){
 				$routeProvider
 				.when('地址1', {配置1})
@@ -489,6 +512,7 @@
 			});
 		
 		4.添加插入点
+		
 			<ng-view></ng-view>
 
 ### Route配置说明
@@ -583,11 +607,13 @@
 		ng升级到了1.6版本后，里面多了很多/#!/的改动
 		
 		解决方案一：
+		
 			在html页面a标签上将href的属性值添加一个!号就可以了
 			<p><a href="#!/addStudent">添加学生</a></p>
 			<p><a href="#!/viewStudents">查看学生</a></p>
 		
 		解决方案二：
+		
 			如果想让路由依旧表现的与之前版本的一致可以这样做：
 			mainApp.config(["$locationProvider","$routeProvider",function($locationProvider,$routeProvider){
 			        $locationProvider.hashPrefix('');

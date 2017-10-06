@@ -23,7 +23,7 @@
 	      let str=show.toString();
 	      str=str.split('{')[0];
 	      str=str.split('(')[1].replace(')', '');
-	      let args=str.split(',').map(s=>s.trim());
+	      let args=str.split(',').map(e=>e.trim());
 	
 	      let values=[];
 	      for(let i=0;i<args.length;i++){
