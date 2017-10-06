@@ -31,7 +31,10 @@
 			{
 				templateUrl: 'setting.html'
 			}
-		);
+		)
+		.otherwise({
+			redirectTo:'user'
+		});
 	});
 
 	app.controller('main', function ($scope){

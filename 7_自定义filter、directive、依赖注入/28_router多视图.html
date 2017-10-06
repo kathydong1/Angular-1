@@ -29,7 +29,10 @@
 			{
 				template: `<p>设置</p>`
 			}
-		);
+		)
+		.otherwise({
+			redirectTo:'user'
+		});
 	});
 </script>
 </head>

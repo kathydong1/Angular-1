@@ -509,7 +509,8 @@
 				$routeProvider
 				.when('地址1', {配置1})
 				.when('地址2', {配置2})
-				.when('地址3', {配置3});
+				.when('地址3', {配置3})
+				.otherwise({redirectTo:'默认设置'});
 			});
 		
 		4.添加插入点

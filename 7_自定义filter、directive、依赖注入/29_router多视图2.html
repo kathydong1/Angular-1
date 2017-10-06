@@ -40,7 +40,10 @@
 			{
 				templateUrl: 'setting.html'
 			}
-		);
+		)
+		.otherwise({
+			redirectTo:'user'
+		});
 	});
 </script>
 </head>
