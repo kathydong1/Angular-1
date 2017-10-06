@@ -53,7 +53,7 @@
 		
 		*ng-repeat              		循环
 		
-		ng-repeat="item in arr/json" 	$index
+		ng-repeat="item in arr/json" 		$index
 		
 		ng-repeat="(key,value) in arr/json"
 		
@@ -205,7 +205,7 @@
 		
 		ng-bind       	输出
 		
-		ng-事件       		ng-click/dblclick/mousedown...
+		ng-事件       	ng-click/dblclick/mousedown...
 		
 		ng-init       	初始化
 		
@@ -213,15 +213,15 @@
 
 > 
 
-		ng-show/hide  显示隐藏    block/none
+		ng-show/hide  	显示隐藏	block/none
 		
-		ng-if         元素是否存在
+		ng-if         	元素是否存在
 
 > 
 
-		ng-src		不报错
+		ng-src			不报错
 		
-		ng-href		和href类似
+		ng-href			和href类似
 
 > 
 
