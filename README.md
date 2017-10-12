@@ -592,16 +592,16 @@
 
 > 模板的另一种写法
 
-	定义模板：
-	<script type="text/ng-template" id="v3.html">
-		模板内容...
-	</script>
-	
-	使用模板和HTML文件一样：
-	.when('/blog/', {
-		templateUrl: 'v3.html',
-		controller: 'blogCont'
-	});
+		定义模板：
+		<script type="text/ng-template" id="v3.html">
+			模板内容...
+		</script>
+		
+		使用模板和HTML文件一样：
+		.when('/blog/', {
+			templateUrl: 'v3.html',
+			controller: 'blogCont'
+		});
 
 > ng1.6版本路由中/#!/的解决方法
 
